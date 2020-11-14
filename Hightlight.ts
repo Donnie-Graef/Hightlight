@@ -9,10 +9,10 @@ export class HightlightPipe implements PipeTransform {
     constructor(private sanitizer: DomSanitizer) {
     }
 
-    transform(value: any,  exponent: string, color: string): any {
+    transform(value: any,  exponent: string): any {
         let receive = value.split(exponent);
         let newTxt = '';
-        let showColor = color?color:'red';
+        let showColor = 'red';
         newTxt = receive.join('<span style="color:'+ showColor +';">' + exponent + '</span>');
         return this.sanitizer.bypassSecurityTrustHtml(newTxt);
     }
